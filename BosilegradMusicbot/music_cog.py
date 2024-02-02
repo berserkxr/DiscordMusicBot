@@ -20,7 +20,7 @@ class music_cog(commands.Cog):
         
     def search_yt(self, item):
         if item.startswith('https://'):
-            title = self.ydl.extract_info(item, download=False)['title']
+            title = self.ytdl.extract_info(item, download=False)['title']
             return{'source': item, 'title': title}
         search = VideosSearch(item, limit=1)
         return{'source': search.result()['result'][0]['link'], 'title':search.result()['result'][0]['title']}
